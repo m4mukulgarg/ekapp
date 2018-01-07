@@ -1,0 +1,124 @@
+<%
+	session.setAttribute("referer","vote.jsp");
+	if(null == session.getAttribute("user")){
+		response.sendRedirect("login.jsp");
+	}
+%>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--A Design by the_professor
+Author: The Professor
+Author URL: http://the_professor.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<html>
+<head>
+<title>Vote | Shyamlal College</title>
+<!-- Bootstrap core CSS -->
+<LINK
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<LINK
+	href="css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet">
+	
+<link href="css/vote-form-style.css" rel="stylesheet" type="text/css" media="all"/>
+<LINK
+	href="css/footer.css"
+	rel="stylesheet"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Easy Contact Form  Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!--web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+<!--web-fonts-->
+</head>
+<body>
+<!-- nav bar  -->
+<NAV class="navbar navbar-inverse navbar-fixed-top">
+	<DIV class="container">
+		<DIV class="navbar-header">
+			<BUTTON type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<SPAN class="sr-only">Toggle navigation</SPAN> <SPAN
+					class="icon-bar"></SPAN> <SPAN class="icon-bar"></SPAN> <SPAN
+					class="icon-bar"></SPAN>
+			</BUTTON>
+			<A class="navbar-brand" href="default.jsp">Home</A>
+		</DIV>
+		<DIV id="navbar" class="navbar-collapse collapse">
+			<FORM class="navbar-form navbar-right" action="login.jsp" method="post">
+				<DIV class="form-group">
+					<INPUT type="text" placeholder="User id" name="user_id" class="form-control">
+				</DIV>
+				<DIV class="form-group">
+					<INPUT type="password" placeholder="Password" name="Password" class="form-control">
+				</DIV>
+				<BUTTON type="submit" class="btn btn-success">Sign in</BUTTON>
+			</FORM>
+		</DIV>
+		<!--/.navbar-collapse -->
+	</DIV>
+	</NAV>
+
+
+<!-- //nav bar -->
+
+
+
+		<!---header--->
+		<div class="header">
+			<h1>Voting Form</h1>
+		</div>
+		<!---header--->
+		<!---main--->
+			<div class="main">
+				<div class="main-section">
+					<div class="login-form">
+						<h2>Choose your candidates...</h2>
+						<form action = "RegisterVote.jsp" method="post">
+						<ul>
+								 <li class="text-info">President</li>
+								 <li><input type="text" placeholder="" required name = "president"></li>
+								 <div class="clear"></div>
+								
+								 
+							 </ul>
+							<ul>
+								 <li class="text-info">V. President</li>
+								 <li><input type="text" placeholder="" name = "v_president" required></li>
+								 <div class="clear"></div>
+							 </ul>
+							<ul>
+								 <li class="text-info">Secretary</li>
+								 <li><input type="text" placeholder="" name = "secretary" required></li>
+								 <div class="clear"></div>
+							 </ul>
+							<ul>
+								 <li class="text-info">J. Secretray</li>
+								 <li><input type="text" placeholder="" name = "j_president" required></li>
+								 <div class="clear"></div>
+							 </ul>
+							 <ul>
+								<li class="text-info">Treasurer</li>
+								<li><input type ="text" placeholder"" name = "treasurer" required></li>
+								<div class="clear"></div>
+							</ul>
+							<input type="submit" value="Submit Vote" >
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+			<p>&copy 2017 | All rights reserved | Design by <a href="http://the_proffessor.com">the_professor</a> HitCount: <%out.print(getServletContext().getAttribute("hits"));%></p>
+		</div>
+
+		<!---main--->
+</body>
+</html>
