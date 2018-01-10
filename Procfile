@@ -1,1 +1,1 @@
-web: java -jar target/ekapp-0.0.1-SNAPSHOT.war
+web: sh target/ekapp-0.0.1-SNAPSHOT.war
