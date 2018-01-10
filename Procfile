@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* ekapp
+web: java -jar target/ekapp-0.0.1-SNAPSHOT.war
