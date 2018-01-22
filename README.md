@@ -10,13 +10,13 @@ To use or edit the project you'll need the following:
 * Just download the [WAR file](https://github.com/m4mukulgarg/ekapp/blob/master/release/ekapp.war) and [database files](https://github.com/m4mukulgarg/ekapp/blob/master/release/data.zip).
 * Download [Apache Tomcat 8.5](https://tomcat.apache.org/download-80.cgi) (Preferred) and deploy the WAR file using manager-gui. For help deploying, click here.
 * Download the MySQL 5.7 database server. Extract the data.zip directory into the MySQL 5.7 install directory. Default ceredentials in the data.zip files are username: ```root``` and password: ```abcd@1234```
-Alternatively, you can import these files [_users.txt_](https://github.com/m4mukulgarg/ekapp/blob/master/release/users.txt), [_party.txt_](https://github.com/m4mukulgarg/ekapp/blob/master/release/party.txt) and  add tables namely ```users``` and ```party``` respectively in a database with name ```ekapp```.
+Alternatively, you can import these files [_users.txt_](https://github.com/m4mukulgarg/ekapp/blob/master/release/users.txt), [_party.txt_](https://github.com/m4mukulgarg/ekapp/blob/master/release/party.txt) and  add tables namely ```users``` and ```party``` respectively in a database with name ```ekapp```. [Read more...](#importing-a-text-file-as-a-table-in-mysql-57)
 * Run the ```mysqld``` database service.
 
 ## For editing
 * Follow the steps mentioned in the above deployment section.
 * Open Eclipse IDE. It should have J2EE support. If you don't have it, you can get it [here](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen2).
-* Import the WAR file that you downloaded into eclipse as a new project. Here's [how](#contribute).
+* Import the WAR file that you downloaded into eclipse as a new project. Here's [how](#importing-war-file-into-eclipse).
 
 
 
