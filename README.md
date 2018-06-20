@@ -16,6 +16,7 @@ Alternatively, you can import these files [_users.txt_](https://github.com/m4muk
 * Follow the steps mentioned in the above deployment section.
 * Open Eclipse IDE. It should have J2EE support. If you don't have it, you can get it [here](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen2).
 * Import the WAR file that you downloaded into eclipse as a new project. Here's [how](#importing-war-file-into-eclipse).
+
 --------------------------------------------------------------------------------------------------------------------------------
 # Appendix
 ## Importing a text file as a table in MySQL 5.7
