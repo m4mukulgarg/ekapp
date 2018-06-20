@@ -12,8 +12,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.sun.org.apache.xalan.internal.xsltc.dom.ArrayNodeListIterator;
-
 
 /**
  * @author WantedChamp
@@ -65,7 +63,7 @@ public class Users implements Serializable {
 		return winners;
 	}
 	public static Users getWinnersByPost(Post p) throws SQLException, ClassNotFoundException, Exception{
-		//TODO
+		
 		Users winner = null;
 	
 		// Register JDBC driver
@@ -84,39 +82,39 @@ public class Users implements Serializable {
 		conn.close();
 		return winner;
 	}
-	public static void main(String[] args) {
-//		Users user = getUserFromDB("2000");
-//		System.out.println(user.toString());
-//		UserCategory u = UserCategory.ADMIN;
-//		Users us = getWinnersByPost(Post.V_PRESIDENT);
-//		System.out.println(us);
-		try {
-			// Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-			// Open a connection
-			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			// Execute SQL query
-			Statement stmt = conn.createStatement();
-			String sql;
-			Post p = null;
-			sql = "SELECT email FROM USERS WHERE post_applied ='" + p.getPostString() + "'";
-			ResultSet rs = stmt.executeQuery(sql);
-			rs.absolute(0);
-			while (rs.next()) {
-//				queryResult = Users.getUserFromDB(rs.getString(1));
-//				candidates.add(queryResult);
-			}
-			conn.close();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
+//	public static void main(String[] args) {
+////		Users user = getUserFromDB("2000");
+////		System.out.println(user.toString());
+////		UserCategory u = UserCategory.ADMIN;
+////		Users us = getWinnersByPost(Post.V_PRESIDENT);
+////		System.out.println(us);
+//		try {
+//			// Register JDBC driver
+//			Class.forName("com.mysql.jdbc.Driver").newInstance();
+//
+//			// Open a connection
+//			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+//			
+//			// Execute SQL query
+//			Statement stmt = conn.createStatement();
+//			String sql;
+//			Post p = null;
+//			sql = "SELECT email FROM USERS WHERE post_applied ='" + p.getPostString() + "'";
+//			ResultSet rs = stmt.executeQuery(sql);
+//			rs.absolute(0);
+//			while (rs.next()) {
+////				queryResult = Users.getUserFromDB(rs.getString(1));
+////				candidates.add(queryResult);
+//			}
+//			conn.close();
+//		} catch (Exception e) {
+//		
+//			e.printStackTrace();
+//		}
+//		
+//		
+//	}
+//	
 	@Override
 	public String toString() {
 		return "Users [name: " + name + ", password: ********" + ", email: " + email
@@ -227,7 +225,7 @@ public class Users implements Serializable {
 				Statement stmt = conn.createStatement();
 				String sql;
 				sql = "UPDATE USERS SET hasVoted='true' WHERE email ='" + this.email + "'";
-				int rs = stmt.executeUpdate(sql);
+				stmt.executeUpdate(sql);
 				conn.close();
 		
 			return true;
@@ -328,7 +326,7 @@ public class Users implements Serializable {
 			Statement stmt = conn.createStatement();
 			String sql;
 			sql = "UPDATE USERS SET vote_count=vote_count+1 WHERE email ='" + uid + "'";
-			int rs = stmt.executeUpdate(sql);
+			stmt.executeUpdate(sql);
 			conn.close();
 	}
 	

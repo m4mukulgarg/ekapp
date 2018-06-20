@@ -112,7 +112,6 @@ public class Party implements Serializable{
 		return candidates;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static Party getPartyFromDB(String party_id) {
 		Party partyQueryResult = new Party();
 		try {
@@ -203,9 +202,9 @@ public class Party implements Serializable{
 	}
 
 	
-	public void setCandidates(HashMap object) {
+	public void setCandidates(HashMap<Post, Users> object) {
 		// TODO Auto-generated method stub
-		this.candidates = object;
+		Party.candidates = object;
 	}
 
 	/**
@@ -272,6 +271,10 @@ public class Party implements Serializable{
 	public String toString() {
 		return "Party [party_id= " + party_id + ", name= " + name + ", agenda_short= " + agenda_short + ", agenda= "
 				+ agenda + ", email= " + email + ", dummy= " + candidates + "]";
+	}
+
+	public static String getJdbcDriver() {
+		return JDBC_DRIVER;
 	}
 	
 	
