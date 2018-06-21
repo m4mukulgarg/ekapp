@@ -35,22 +35,14 @@
 	rel="stylesheet"/>
 	<link rel="stylesheet" href="css/sample.css">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <SCRIPT
 	src="js/ie-emulation-modes-warning.js"
 	type="text/javascript"></SCRIPT>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </HEAD>
 
 <BODY>
 <jsp:include page="navbar.jsp"/>
-	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<DIV class="jumbotron">
 		<DIV class="container">
 			<H1>EkApp Voting portal</H1>
