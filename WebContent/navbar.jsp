@@ -10,19 +10,19 @@
 					class="icon-bar"></SPAN> <SPAN class="icon-bar"></SPAN> <SPAN
 					class="icon-bar"></SPAN>
 			</BUTTON>
-			<A class="navbar-brand" href="/ekapp/default.jsp">Home</A>
+			<A class="navbar-brand" href="/default.jsp">Home</A>
 			<%if(null==session.getAttribute("user")){%>
-			<A class="navbar-brand" href="/ekapp/Register.jsp">Register</A>
+			<A class="navbar-brand" href="/Register.jsp">Register</A>
 			<%} %>
-			<A class="navbar-brand" href="/ekapp/vote.jsp">Vote</A>
-			<A class="navbar-brand" href="/ekapp/winners.jsp">Winners</A>
+			<A class="navbar-brand" href="/vote.jsp">Vote</A>
+			<A class="navbar-brand" href="/winners.jsp">Winners</A>
 			<%if(null!=session.getAttribute("user") && (UserCategory)session.getAttribute("category") == UserCategory.ADMIN){ %>
-			<A class="navbar-brand" href="/ekapp/Dashboard.jsp">Dashboard</A>
+			<A class="navbar-brand" href="/Dashboard.jsp">Dashboard</A>
 			<%} %>
 		</DIV>
 		<%if (session.getAttribute("type")==null||!(((String)session.getAttribute("type")).equalsIgnoreCase("user"))) {%>
 		<DIV id="navbar" class="navbar-collapse collapse">
-			<FORM class="navbar-form navbar-right" action="/ekapp/login.jsp" method="post">
+			<FORM class="navbar-form navbar-right" action="login.jsp" method="post">
 				<DIV class="form-group">
 					<INPUT type="text" placeholder="User id" name="email" class="form-control">
 				</DIV>
@@ -36,7 +36,7 @@
 		<DIV id="navbar" class="navbar-collapse collapse">
 		<DIV class="navbar-header navbar-right">
 			<A class="navbar-brand" href="profile.jsp">Hello, <%out.write(((Users)session.getAttribute("user")).getName()); %>!</A>
-			<FORM class="navbar-form navbar-right" action="/ekapp/logout.jsp" method="post">
+			<FORM class="navbar-form navbar-right" action="/logout.jsp" method="post">
 				<BUTTON type="submit" class="btn btn-success">Logout</BUTTON>
 			</FORM>
 		</DIV>
