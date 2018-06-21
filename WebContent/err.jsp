@@ -25,9 +25,6 @@
 	href="./err_files/styles.f70e6b4ccff6a9890a2dbf0ecbf001a4.css"
 	rel="stylesheet">
 
-<link rel="import"
-	href="chrome-extension://melpgahbngpgnbhhccnopmlmpbmdaeoi/app/templates/feedback.html"
-	id="udacity-test-widget">
 </head>
 <body class="">
 

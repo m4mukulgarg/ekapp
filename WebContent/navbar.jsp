@@ -11,38 +11,66 @@
 					class="icon-bar"></SPAN>
 			</BUTTON>
 			<A class="navbar-brand" href="default.jsp">Home</A>
-			<%if(null==session.getAttribute("user")){%>
+			<%
+				if (null == session.getAttribute("user")) {
+			%>
+
 			<A class="navbar-brand" href="Register.jsp">Register</A>
-			<%} %>
-			<A class="navbar-brand" href="vote.jsp">Vote</A>
-			<A class="navbar-brand" href="winners.jsp">Winners</A>
-			<%if(null!=session.getAttribute("user") && (UserCategory)session.getAttribute("category") == UserCategory.ADMIN){ %>
+			<div class="navbar-brand">
+				Demo[<a href="login.jsp?email=admin1010@localohost&pass=abcd@1234">Admin</A>|<a href="login.jsp?email=dswanger9@altervista.org&pass=ZrZCD0Mzm8sa">User</a>|<a
+					href="login.jsp?email=candidate4@localohost&pass=abcd@1234">Candidate</a>]
+			</div>
+			<%
+				}
+			%>
+			<A class="navbar-brand" href="vote.jsp">Vote</A> <A
+				class="navbar-brand" href="winners.jsp">Winners</A>
+			<%
+				if (null != session.getAttribute("user")
+						&& (UserCategory) session.getAttribute("category") == UserCategory.ADMIN) {
+			%>
 			<A class="navbar-brand" href="Dashboard.jsp">Dashboard</A>
-			<%} %>
+			<%
+				}
+			%>
 		</DIV>
-		<%if (session.getAttribute("type")==null||!(((String)session.getAttribute("type")).equalsIgnoreCase("user"))) {%>
+		<%
+			if (session.getAttribute("type") == null
+					|| !(((String) session.getAttribute("type")).equalsIgnoreCase("user"))) {
+		%>
 		<DIV id="navbar" class="navbar-collapse collapse">
-			<FORM class="navbar-form navbar-right" action="login.jsp" method="post">
+			<FORM class="navbar-form navbar-right" action="login.jsp"
+				method="post">
 				<DIV class="form-group">
-					<INPUT type="text" placeholder="User id" name="email" class="form-control">
+					<INPUT type="text" placeholder="User id" name="email"
+						class="form-control">
 				</DIV>
 				<DIV class="form-group">
-					<INPUT type="password" placeholder="Password" name="pass" class="form-control">
+					<INPUT type="password" placeholder="Password" name="pass"
+						class="form-control">
 				</DIV>
 				<BUTTON type="submit" class="btn btn-success">Sign in</BUTTON>
 			</FORM>
 		</DIV>
-		<% } else {%>
+		<%
+			} else {
+		%>
 		<DIV id="navbar" class="navbar-collapse collapse">
-		<DIV class="navbar-header navbar-right">
-			<A class="navbar-brand" href="profile.jsp">Hello, <%out.write(((Users)session.getAttribute("user")).getName()); %>!</A>
-			<FORM class="navbar-form navbar-right" action="logout.jsp" method="post">
-				<BUTTON type="submit" class="btn btn-success">Logout</BUTTON>
-			</FORM>
+			<DIV class="navbar-header navbar-right">
+				<A class="navbar-brand" href="profile.jsp">Hello, <%
+					out.write(((Users) session.getAttribute("user")).getName());
+				%>!
+				</A>
+				<FORM class="navbar-form navbar-right" action="logout.jsp"
+					method="post">
+					<BUTTON type="submit" class="btn btn-success">Logout</BUTTON>
+				</FORM>
+			</DIV>
 		</DIV>
-		</DIV>
-		<%} %>
+		<%
+			}
+		%>
 		<!--/.navbar-collapse -->
 	</DIV>
-	</NAV>
-		
+</NAV>
+
