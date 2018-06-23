@@ -10,7 +10,7 @@ name varchar(32) NOT NULL,
 	post_applied varchar(11),
 	gender varchar(7) not null,
 	address varchar(255) not null,
-	isApproved int(1) default 0,
+	approved int(1) default 0,
 	quote varchar(255),
 	about varchar(255)
 );

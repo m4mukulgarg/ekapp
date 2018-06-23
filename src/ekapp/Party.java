@@ -46,8 +46,13 @@ public class Party implements Serializable {
 		return getPartyFromDB(party_id.toString());
 	}
 
-	public static ArrayList<Party> getPartiesFromDB() {
-		ArrayList<Party> p = new ArrayList<Party>();
+	/**
+	 * 
+	 * @param count: No. of party objects to retrieve, 0 for all
+	 * @return 
+	 */
+	public static ArrayList<Party> getPartiesFromDB(int count) {
+		ArrayList<Party> parties = new ArrayList<Party>();
 
 		try {
 			// Register JDBC driver
@@ -59,10 +64,13 @@ public class Party implements Serializable {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT party_id from party";
+			if (count == 0)
+				sql = "SELECT party_id from party";
+			else
+				sql = "SELECT party_id from party ORDER BY RAND() LIMIT " + count;
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				p.add(getPartyFromDB(rs.getString(1)));
+				parties.add(getPartyFromDB(rs.getString(1)));
 			}
 		} catch (SQLException sqle) {
 			System.out.println("SQLException");
@@ -75,7 +83,7 @@ public class Party implements Serializable {
 			e.printStackTrace();
 		}
 
-		return p;
+		return parties;
 	}
 
 	public HashMap<Post, Users> getCandidates() {
@@ -90,7 +98,7 @@ public class Party implements Serializable {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT user_id FROM USERS WHERE party_id ='" + this.party_id + "'";
+			sql = "SELECT email FROM USERS WHERE party_id ='" + this.party_id + "'";
 			ResultSet rs = stmt.executeQuery(sql);
 			rs.absolute(0);
 			while (rs.next()) {
@@ -134,11 +142,11 @@ public class Party implements Serializable {
 				partyQueryResult.setAgenda_short(rs.getString(3));
 				partyQueryResult.setAgenda(rs.getString(4));
 				partyQueryResult.setEmail(rs.getString(5));
-//				String o = rs.getString(6);
-//				if (null != o) {
-//					System.out.println(o);
-//					// partyQueryResult.setCandidates( (HashMap) o);
-//				}
+				// String o = rs.getString(6);
+				// if (null != o) {
+				// System.out.println(o);
+				// // partyQueryResult.setCandidates( (HashMap) o);
+				// }
 			}
 			conn.close();
 		} catch (SQLException sqle) {
@@ -271,7 +279,6 @@ public class Party implements Serializable {
 		this.agenda_short = agenda_short;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Party [party_id= " + party_id + ", name= " + name + ", agenda_short= " + agenda_short + ", agenda= "
