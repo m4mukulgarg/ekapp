@@ -3,9 +3,9 @@
 	Boolean isWinnersPublished = (Boolean) application.getAttribute("isWinnersPublished");
 	if (isWinnersPublished == null || !isWinnersPublished) {
 		if (null == session.getAttribute("user") || null == session.getAttribute("category")) {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("/login.jsp");
 		} else if ((UserCategory) session.getAttribute("category") != UserCategory.ADMIN) {
-			response.sendRedirect("default.jsp");
+			response.sendRedirect("/default.jsp");
 		}
 	}
 %>

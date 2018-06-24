@@ -11,10 +11,10 @@
 	ArrayList<Users> j_secs = Users.getUsersByPost(Post.J_SECRETARY);
 	ArrayList<Users> ts = Users.getUsersByPost(Post.TREASURER);
 	session.removeAttribute("referer");
-	session.setAttribute("referer", "vote.jsp");
+	session.setAttribute("referer", "/vote.jsp");
 	Users usr = (Users) session.getAttribute("user");
 	if (null == usr) {
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("/login.jsp");
 	} else if (usr.hasVoted()) {
 		out.write("Already Voted");
 	} else if (!(usr.hasVoted())) {
@@ -51,7 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--web-fonts-->
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+	<jsp:include page="/navbar.jsp" />
 
 	<!---header--->
 	<div class="clear"></div>
@@ -157,7 +157,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="/footer.jsp" />
 	<!---main--->
 </body>
 </html>

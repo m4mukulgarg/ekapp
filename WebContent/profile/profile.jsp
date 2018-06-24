@@ -1,21 +1,21 @@
 <%@ page import="ekapp.*"%>
 <%
-	session.setAttribute("referer", "/ekapp/Dashboard.jsp");
+	session.setAttribute("referer", "/Dashboard.jsp");
 %>
 
 <%
 	String referer = (String) session.getAttribute("referer");
 	if (referer == null) {
-		referer = "/ekapp/default.jsp";
+		referer = "/default.jsp";
 	}
 
 	Users u = (Users) session.getAttribute("user");
 	if (null == u) {
-		response.sendRedirect("/ekapp/login.jsp");
+		response.sendRedirect("/login.jsp");
 	} else {
 %>
 
-<jsp:include page="../header.jsp" />
+<jsp:include page="/header.jsp" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -94,11 +94,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<jsp:include page="/navbar.jsp" />
 	<div class="banner" id="home">
-
-
-
-
-
 		<div class="container">
 
 			<div class="w3l-banner-grids">
@@ -200,10 +195,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-
-
-
-
 	<%
 		}
 	%>
