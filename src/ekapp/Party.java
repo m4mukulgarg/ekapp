@@ -194,7 +194,7 @@ public class Party implements Serializable {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "INSERT INTO PARTY (party_id,name) VALUES(" + this.party_id + "," + " '" + this.name + "')";
+			sql = "INSERT INTO PARTY (party_id,name,agenda_short,agenda) VALUES(" + this.party_id + "," + " '" + this.name + "', 'blab', 'alasdfkjhk')";
 
 			stmt.execute(sql);
 			success = true;

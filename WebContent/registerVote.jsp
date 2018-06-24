@@ -1,4 +1,7 @@
-<%@page import="ekapp.*,java.*,java.util.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META content=""><%@page import="ekapp.*,java.*,java.util.*"%>
 <%
 	session.setAttribute("referer", "registerVote.jsp");
 	Users usr = (Users) session.getAttribute("user");
@@ -20,10 +23,7 @@
 		usr.changeVote();
 %>
 <jsp:include page="header.jsp" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<META charset="utf-8" content="">
+
 <META http-equiv="X-UA-Compatible" content="IE=edge">
 <META name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -55,22 +55,22 @@
     <![endif]-->
 
 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
-<link type="stylesheet href= "css/footer.jsp">
+<link type="stylesheet" href="css/footer.css">
 <title>Register Vote | Shyamlal College</title>
 <style type="text/css">
 h2 {
-    display: block;
+	display: block;
 	-webkit-margin-before: 0.83em;
 	-webkit-margin-after: 0.83em;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-	    font-family: inherit;
-    font-weight: 500;
-    line-height: 1.1;
-    color: inherit;
-    margin-top: 20px;
-    font-size: 30px;
-    margin-bottom: 10px
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+	margin-top: 20px;
+	font-size: 30px;
+	margin-bottom: 10px
 }
 </style>
 </head>
@@ -84,8 +84,7 @@ h2 {
 			%>
 		</p>
 		<form class="form-signin" action="default.jsp" method="post">
-			<h2  class="form-signin-heading">Vote
-				registered successfully!</h2>
+			<h2 class="form-signin-heading">Vote registered successfully!</h2>
 			<button style="align-content: center; width: 20%;"
 				class="btn btn-lg btn-primary btn-block" type="submit">Home</button>
 		</form>

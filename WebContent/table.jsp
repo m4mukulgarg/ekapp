@@ -1,4 +1,4 @@
-<%@page import="ekapp.UserCategory"%>
+<%-- <%@page import="ekapp.UserCategory"%>
 <%
 	if (null == session.getAttribute("user") || null == session.getAttribute("category")){
 		response.sendRedirect("login.jsp");
@@ -159,4 +159,4 @@
                     <!-- /.panel -->
                 </div>
 </body>
-</html>
+</html> --%>

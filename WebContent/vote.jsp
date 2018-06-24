@@ -80,7 +80,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									}
 								%>
 						</select></li>
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> -->
 
 
 					</ul>
@@ -99,7 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									}
 								%>
 						</select></li>
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> -->
 					</ul>
 					<ul>
 						<li class="text-info">Secretary</li>
@@ -116,7 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									}
 								%>
 						</select></li>
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> -->
 					</ul>
 					<ul>
 						<li class="text-info">J. Secretray</li>
@@ -133,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									}
 								%>
 						</select></li>
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> -->
 					</ul>
 					<ul>
 						<li class="text-info">Treasurer</li>
@@ -150,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									}
 								%>
 						</select></li>
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> -->
 					</ul>
 					<input type="submit" value="Submit Vote">
 				</form>

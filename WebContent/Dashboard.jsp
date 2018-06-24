@@ -3,13 +3,11 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page import="ekapp.*"%>
 <%
-	if (null == session.getAttribute("user") || null == session.getAttribute("category")){
+	if (null == session.getAttribute("user") || null == session.getAttribute("category")) {
 		response.sendRedirect("login.jsp");
+	} else if ((UserCategory) session.getAttribute("category") != UserCategory.ADMIN) {
+		response.sendRedirect("default.jsp");
 	}
-	else 
-		if((UserCategory) session.getAttribute("category") != UserCategory.ADMIN){
-			response.sendRedirect("default.jsp");
-		}
 %>
 
 
@@ -36,7 +34,7 @@
 <body>
 	<jsp:include page="DashNav.jsp" />
 
-	
+
 	<script type="text/javascript">
 		function activate(a) {
 
@@ -60,14 +58,14 @@
 		<div class="row">
 			<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar tab">
 			<ul class="nav nav-pills flex-column">
-				
+
 				<li class="nav-item"><a onclick="activate('party')" id="party"
 					class="nav-link active" href="Dashboard.jsp#0">Party</a></li>
-				
-				
+
+
 				<li class="nav-item"><a onclick="activate('users')" id="users"
 					class="nav-link" href="Dashboard.jsp#1">Users</a></li>
-				
+
 				<li class="nav-item"><a onclick="activate('winners')"
 					id="winners" class="nav-link" href="Dashboard.jsp#2">Winners</a></li>
 			</ul>
@@ -81,124 +79,155 @@
 
 
 
-				<h2 id="0" align="center">Party</h2>
-				<h4>Parties involved in the election.</h4>
-				<% ArrayList<Party> parties = Party.getPartiesFromDB(); %>
+			<h2 id="0" align="center">Party</h2>
+			<h4>Parties involved in the election.</h4>
+			<%
+				ArrayList<Party> parties = Party.getPartiesFromDB(0);
+			%>
+
+			<div class="table-responsive">
+				<table class="table table-striped">
+
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+							for (Party p : parties) {
+						%>
+						<tr>
+							<td>
+								<%
+									out.write(p.getParty_id().toString());
+								%>
+							</td>
+							<td>
+								<%
+									out.write(p.getName());
+								%>
+							</td>
+						</tr>
+						<%
+							}
+						%>
+					</tbody>
+
+				</table>
+			</div>
+			<form action="RemoveParty.jsp">
+
+				<h4>Remove a party</h4>
 
 				<div class="table-responsive">
 					<table class="table table-striped">
-								
-								
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Name</th>
-								</tr>
-							</thead>
-							<tbody>
-							<%for (Party p : parties){ %>
-								<tr>
-									<td><%out.write(p.getParty_id().toString()); %></td>
-									<td><%out.write(p.getName()); %></td>
-								</tr>
-							<%} %>
-							</tbody>
-							
+
+
+						<thead>
+							<tr>
+								<th>Party id:</th>
+								<th><input type="number" name="party_id"></th>
+								<th><input type="submit" value="Remove"></th>
+							</tr>
+						</thead>
 					</table>
 				</div>
-<form action= "RemoveParty.jsp">
-
-				<h4 >Remove a party</h4>
-
+			</form>
+			<form action="AddParty.jsp">
+				<h4>Add a party</h4>
 				<div class="table-responsive">
 					<table class="table table-striped">
-								
-								
-							<thead>
-								<tr>
-									<th>Party id:</th>
-									<th><input type="number" name="party_id"></th>
-									<th><input type = "submit"  value = "Remove" ></th>
-								</tr>
-							</thead>	
+						<thead>
+							<tr>
+								<th>Party id:</th>
+								<th><input type="number" name="party_id"></th>
+								<th>Name</th>
+								<th><input type="text" name="party_name"></th>
+								<th><input type="submit" value="Add"></th>
+							</tr>
+						</thead>
 					</table>
 				</div>
-</form> 
-				<form action= "AddParty.jsp">
-					<h4>Add a party</h4>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Party id:</th>
-									<th><input type="number" name="party_id"></th>
-									<th>Name</th>
-									<th><input type="text" name="party_name"></th>
-									<th><input type = "submit"  value = "Add" ></th>
-								</tr>
-							</thead>	
-						</table>
-					</div>
-				</form> 
-				
-				
-				<h2 id="1" align="center">Users</h2>
-				<h4>Pending user registrations.</h4>
-				<% ArrayList<Users> pendingUsers = Users.getPendingUsers(); %>
+			</form>
 
+
+			<h2 id="1" align="center">Users</h2>
+			<h4>Pending user registrations.</h4>
+			<%
+				ArrayList<Users> pendingUsers = Users.getPendingUsers();
+			%>
+
+			<div class="table-responsive">
+				<table class="table table-striped">
+
+
+					<thead>
+						<tr>
+							<th>Email</th>
+							<th>Name</th>
+							<th>Category</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+							for (Users u : pendingUsers) {
+						%>
+						<tr>
+							<td>
+								<%
+									out.write(u.getEmail());
+								%>
+							</td>
+							<td>
+								<%
+									out.write(u.getName());
+								%>
+							</td>
+							<td>
+								<%
+									out.write(u.getCategory().getCategoryString());
+								%>
+							</td>
+							<td><a
+								href="ApproveUser.jsp?id=<%out.write(u.getEmail());%>">Approve</a></td>
+						</tr>
+						<%
+							}
+						%>
+					</tbody>
+
+				</table>
+			</div>
+
+
+
+
+
+
+			<h2 id="2" align="center">Winners</h2>
+			<form action="PublishWinners.jsp">
+
+				<h4>Publish Winners</h4>
 				<div class="table-responsive">
 					<table class="table table-striped">
-								
-								
-							<thead>
-								<tr>
-									<th>Email</th>
-									<th>Name</th>
-									<th>Category</th>
-									<th></th>	
-								</tr>
-							</thead>
-							<tbody>
-							<%for (Users u : pendingUsers){ %>
-								<tr>
-									<td><%out.write(u.getEmail()); %></td>
-									<td><%out.write(u.getName()); %></td>
-									<td><%out.write(u.getCategory().getCategoryString()); %></td>
-									<td><a href="ApproveUser.jsp?id=<%out.write(u.getEmail());%>">Approve</a></td>
-								</tr>
-							<%} %>
-							</tbody>
-							
+						<thead>
+							<tr>
+								<th><select name="pub">
+										<option value="" />
+										<option value="publish">Publish</option>
+										<option value="hide">hide</option>
+								</select></th>
+								<th><input type="submit" value="Publish"></th>
+							</tr>
+						</thead>
 					</table>
 				</div>
-				
-				
-				
-				
-				
-				
-					<h2 id="2" align="center">Winners</h2>
-				<form action= "PublishWinners.jsp">
-					
-					<h4>Publish Winners</h4>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>
-										<select name="pub">
-											<option value=""/>
-											<option value="publish">Publish</option>
-											<option value="hide">hide</option>
-										</select>
-									</th>
-									<th><input type = "submit"  value = "Publish" ></th>
-								</tr>
-							</thead>	
-						</table>
-					</div>
-				</form> 
-		
+			</form>
+
 			</main>
 		</div>
 	</div>

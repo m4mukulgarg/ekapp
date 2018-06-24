@@ -1,4 +1,4 @@
-<%@page import="java.util.Date"%>
+<%-- <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page import="ekapp.*"%>
 <%
@@ -87,7 +87,7 @@
 
 				<h2 id="0" align="center">Schedule</h2>
 				<h4>Current Schedule</h4>
-<%SimpleDateFormat sdf = new SimpleDateFormat ("MMM dd, yyyy HH:mm:ss");
+				<%SimpleDateFormat sdf = new SimpleDateFormat ("MMM dd, yyyy HH:mm:ss");
 Date startDate =(Date) application.getAttribute("Election_Start_Date");
 Date endDate =(Date) application.getAttribute("Election_End_Date");
 %>
@@ -96,29 +96,33 @@ Date endDate =(Date) application.getAttribute("Election_End_Date");
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<%	if (null == startDate || null == endDate){ %>
-								
-								<thead>
-								<tr>
-									<td>No Polls Scheduled!</td>
-								</tr>
-								
-							</thead>
-								
+
+						<thead>
+							<tr>
+								<td>No Polls Scheduled!</td>
+							</tr>
+
+						</thead>
+
 						<%} else {%>
-							<thead>
-								<tr>
-									<th>Starts at</th>
-									<th>Ends at</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><% out.write(sdf.format(startDate)); %></td>
-									<td><% out.write(sdf.format(endDate)); %></td>
-									<td><input value="Clear!" type="submit"></td>
-								</tr>
-							</tbody>
-							<%} %>
+						<thead>
+							<tr>
+								<th>Starts at</th>
+								<th>Ends at</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<% out.write(sdf.format(startDate)); %>
+								</td>
+								<td>
+									<% out.write(sdf.format(endDate)); %>
+								</td>
+								<td><input value="Clear!" type="submit"></td>
+							</tr>
+						</tbody>
+						<%} %>
 					</table>
 				</div>
 			</form>
@@ -144,7 +148,7 @@ Date endDate =(Date) application.getAttribute("Election_End_Date");
 							<tr>
 								<td>Time:</td>
 								<td><input name="start_time" required="" type="time"></td>
-					
+
 								<td>Date:</td>
 								<td><input name="start_date" required="" type="date"></td>
 							</tr>
@@ -160,7 +164,7 @@ Date endDate =(Date) application.getAttribute("Election_End_Date");
 							<tr>
 								<td>Time:</td>
 								<td><input name="end_time" type="time" required=""></td>
-								
+
 								<td>Date:</td>
 								<td><input name="end_date" type="date" required=""></td>
 							</tr>
@@ -170,9 +174,9 @@ Date endDate =(Date) application.getAttribute("Election_End_Date");
 								<th></th>
 								<th></th>
 								<th></th>
-								
+
 								<th><input value="Schedule!" type="submit"></th>
-								
+
 							</tr>
 						</tbody>
 
@@ -228,3 +232,4 @@ Date endDate =(Date) application.getAttribute("Election_End_Date");
 
 </body>
 </html>
+ --%>

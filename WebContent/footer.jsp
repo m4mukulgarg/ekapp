@@ -1,3 +1,10 @@
 <div class="footer">
-	<p>&copy 2017 | All rights reserved. |  | HitCount: <%out.print(getServletContext().getAttribute("hits"));%></p>
+	<p>
+		© 2018 | All rights reserved. | <a
+			href="https://linkedin.com/in/m4mukulgarg">@m4MukulGarg</a> |
+		HitCount:
+		<%
+		out.print(getServletContext().getAttribute("hits"));
+	%>
+	</p>
 </div>
