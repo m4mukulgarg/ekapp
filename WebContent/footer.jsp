@@ -1,7 +1,7 @@
 <div class="footer">
 	<p>
-		© 2018 | All rights reserved. | <a
-			href="https://linkedin.com/in/m4mukulgarg">@m4MukulGarg</a> |
+		Â© 2018 | All rights reserved. | <a
+			href="https://github.com/m4mukulgarg/ekapp/issues/new">Contact</a> |
 		HitCount:
 		<%
 		out.print(getServletContext().getAttribute("hits"));
